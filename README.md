@@ -1,2 +1,2 @@
 # telesafe_public
-All data supporting Telesafe publication
+All data supporting Telesafe publications
