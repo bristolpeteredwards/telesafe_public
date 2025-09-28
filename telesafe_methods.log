@@ -1,0 +1,1270 @@
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  [REDACTED SERVER]\telesafe_methods.log
+  log type:  text
+ opened on:  28 Sep 2025, 15:01:21
+
+. 
+. use one_line_per_cons_methods.dta, clear
+
+. 
+. asdoc, text(Telesafe Methods Results) fs(15) save(telesafe_methods_results) replace
+(file telesafe_methods_results.doc not found)
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab pt_age_cat if pt_dup!=1, missing
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   __000000 |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      18-34 |          8        9.09        9.09
+      35-49 |          9       10.23       19.32
+      50-64 |         21       23.86       43.18
+       >=65 |         49       55.68       98.86
+          . |          1        1.14      100.00
+------------+-----------------------------------
+      Total |         88      100.00
+(file telesafe_methods_results.doc not found)
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab gender if pt_dup!=1, missing
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+           Gender |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+             Male |         33       37.50       37.50
+           Female |         55       62.50      100.00
+------------------+-----------------------------------
+            Total |         88      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab ethnicity if pt_dup!=1, missing
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+        Ethnicity |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+            Black |          1        1.14        1.14
+            Mixed |          1        1.14        2.27
+            White |         81       92.05       94.32
+Prefer not to say |          1        1.14       95.45
+                . |          4        4.55      100.00
+------------------+-----------------------------------
+            Total |         88      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab no_of_probs, missing
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+no_of_probs |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         48       52.75       52.75
+          2 |         22       24.18       76.92
+          3 |         17       18.68       95.60
+          4 |          2        2.20       97.80
+          5 |          2        2.20      100.00
+------------+-----------------------------------
+      Total |         91      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab practice_dep, missing
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+practice_de |
+          p |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         19       20.88       20.88
+          2 |          7        7.69       28.57
+          5 |          6        6.59       35.16
+          9 |         42       46.15       81.32
+         10 |         17       18.68      100.00
+------------+-----------------------------------
+      Total |         91      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab practice_, missing nolab
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   practice |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |          5        5.49        5.49
+          2 |         42       46.15       51.65
+          3 |          1        1.10       52.75
+          4 |         17       18.68       71.43
+          5 |          7        7.69       79.12
+          6 |         15       16.48       95.60
+          7 |          4        4.40      100.00
+------------+-----------------------------------
+      Total |         91      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab hcp_role
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+  Healthcare professional |
+                     role |      Freq.     Percent        Cum.
+--------------------------+-----------------------------------
+A partner in your surgery |         83       91.21       91.21
+            A salaried GP |          7        7.69       98.90
+             GP Registrar |          1        1.10      100.00
+--------------------------+-----------------------------------
+                    Total |         91      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. tab gp_id2, matcell(gp_cons_freq)
+
+      gp_id |      Freq.     Percent        Cum.
+------------+-----------------------------------
+       GP 1 |         18       19.78       19.78
+       GP 2 |          1        1.10       20.88
+       GP 3 |          1        1.10       21.98
+       GP 4 |          6        6.59       28.57
+       GP 5 |          3        3.30       31.87
+       GP 6 |          1        1.10       32.97
+       GP 7 |          1        1.10       34.07
+       GP 8 |         20       21.98       56.04
+       GP 9 |          3        3.30       59.34
+      GP 10 |          2        2.20       61.54
+      GP 11 |          9        9.89       71.43
+      GP 12 |          1        1.10       72.53
+      GP 13 |          1        1.10       73.63
+      GP 14 |          3        3.30       76.92
+      GP 15 |          1        1.10       78.02
+      GP 16 |          4        4.40       82.42
+      GP 17 |          4        4.40       86.81
+      GP 18 |         11       12.09       98.90
+      GP 20 |          1        1.10      100.00
+------------+-----------------------------------
+      Total |         91      100.00
+
+. svmat gp_cons_freq, name(gp_cons_freq)
+
+. asdoc tabstat gp_cons_freq, stat(mean median sd min max range) 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+             |      Mean        p50         SD        Min        Max      Range 
+-------------+-----------------------------------------------------------------
+gp_cons_fr~1 |  4.789474          3   5.759812          1         20         19 
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tabstat pt_age, stat(mean median sd min max range) if pt_dup!=1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+             |      Mean        p50         SD        Min        Max      Range 
+-------------+-----------------------------------------------------------------
+      pt_age |      63.5         68   16.13583         18         94         76 
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tabstat no_of_probs, stat(mean median sd min max range) 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+             |      Mean        p50         SD        Min        Max      Range 
+-------------+-----------------------------------------------------------------
+ no_of_probs |  1.769231          1   .9783992          1          5          4 
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. duplicates drop gp_id2, force
+
+Duplicates in terms of gp_id2
+
+(72 observations deleted)
+
+. 
+. asdoc tab hcp_sex
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+       Sex of the |
+       healthcare |
+     professional |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+             Male |          8       42.11       42.11
+           Female |         11       57.89      100.00
+------------------+-----------------------------------
+            Total |         19      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab gp_age_cat
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+ gp_age_cat |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      18–34 |          2       10.53       10.53
+      35–49 |         12       63.16       73.68
+      50–64 |          5       26.32      100.00
+------------+-----------------------------------
+      Total |         19      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab hcp_ethnicity
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+     HCP-reported |
+        ethnicity |      Freq.     Percent        Cum.
+------------------+-----------------------------------
+            Asian |          1        5.26        5.26
+            Mixed |          1        5.26       10.53
+            White |         17       89.47      100.00
+------------------+-----------------------------------
+            Total |         19      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tabstat gp_age, stat(mean median sd min max range) 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+             |      Mean        p50         SD        Min        Max      Range 
+-------------+-----------------------------------------------------------------
+      gp_age |  45.26316         42   10.30017         32         62         30 
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab practice_, nolab 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   practice |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |          4       21.05       21.05
+          2 |          4       21.05       42.11
+          3 |          1        5.26       47.37
+          4 |          4       21.05       68.42
+          5 |          2       10.53       78.95
+          6 |          2       10.53       89.47
+          7 |          2       10.53      100.00
+------------+-----------------------------------
+      Total |         19      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. clear
+
+. use invites_consents.dta
+
+. 
+. *MAIN USED
+. meglm consented ib5.imd_quintile i.text_or_letter non_white  || prac_id:, family(binomial invites_sent) link(logit) vce(robust) or base
+
+Fitting fixed-effects model:
+
+Iteration 0:  Log likelihood = -26.179948  
+Iteration 1:  Log likelihood = -25.924901  
+Iteration 2:  Log likelihood = -25.924238  
+Iteration 3:  Log likelihood = -25.924238  
+
+Refining starting values:
+
+Grid node 0:  Log likelihood = -31.588981
+
+Fitting full model:
+
+Iteration 0:  Log pseudolikelihood = -31.588981  (not concave)
+Iteration 1:  Log pseudolikelihood =  -26.87929  (not concave)
+Iteration 2:  Log pseudolikelihood = -26.311639  (not concave)
+Iteration 3:  Log pseudolikelihood = -26.084326  (not concave)
+Iteration 4:  Log pseudolikelihood =    -26.038  (not concave)
+Iteration 5:  Log pseudolikelihood = -25.999828  (not concave)
+Iteration 6:  Log pseudolikelihood = -25.996002  (not concave)
+Iteration 7:  Log pseudolikelihood = -25.995954  (not concave)
+Iteration 8:  Log pseudolikelihood = -25.995945  (not concave)
+Iteration 9:  Log pseudolikelihood = -25.995941  (not concave)
+Iteration 10: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 11: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 12: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 13: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 14: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 15: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 16: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 17: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 18: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 19: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 20: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 21: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 22: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 23: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 24: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 25: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 26: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 27: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 28: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 29: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 30: Log pseudolikelihood =  -25.99594  (not concave)
+Iteration 31: Log pseudolikelihood = -25.995939  
+Iteration 32: Log pseudolikelihood = -25.995922  (backed up)
+Iteration 33: Log pseudolikelihood = -25.995904  (backed up)
+Iteration 34: Log pseudolikelihood = -25.995902  (not concave)
+Iteration 35: Log pseudolikelihood = -25.995893  
+Iteration 36: Log pseudolikelihood = -25.995324  (backed up)
+Iteration 37: Log pseudolikelihood = -25.994759  (not concave)
+Iteration 38: Log pseudolikelihood = -25.994703  
+Iteration 39: Log pseudolikelihood = -25.993586  (backed up)
+Iteration 40: Log pseudolikelihood = -25.993035  (backed up)
+Iteration 41: Log pseudolikelihood = -25.991944  (backed up)
+Iteration 42: Log pseudolikelihood = -25.961801  
+Iteration 43: Log pseudolikelihood = -25.933314  
+Iteration 44: Log pseudolikelihood = -25.924239  (not concave)
+Iteration 45: Log pseudolikelihood = -25.924239  (not concave)
+Iteration 46: Log pseudolikelihood = -25.924239  
+
+Mixed-effects GLM                               Number of obs     =         11
+Family: Binomial
+Link:   Logit
+Binomial variable: invites_sent
+Group variable: prac_id                         Number of groups  =          7
+
+                                                Obs per group:
+                                                              min =          1
+                                                              avg =        1.6
+                                                              max =          2
+
+Integration method: mvaghermite                 Integration pts.  =          7
+
+                                                Wald chi2(4)      =     119.33
+Log pseudolikelihood = -25.924239               Prob > chi2       =     0.0000
+                                  (Std. err. adjusted for 7 clusters in prac_id)
+--------------------------------------------------------------------------------
+               |               Robust
+     consented | Odds ratio   std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+  imd_quintile |
+            1  |   .2162243   .1010352    -3.28   0.001     .0865293    .5403132
+            3  |   .1797136   .0781206    -3.95   0.000     .0766598    .4213026
+            5  |          1  (base)
+               |
+text_or_letter |
+       letter  |          1  (base)
+         text  |   .6715421   .1695193    -1.58   0.115     .4094511    1.101398
+               |
+     non_white |   5.602398   23.48305     0.41   0.681     .0015152    20714.58
+         _cons |   .1566146    .016853   -17.23   0.000     .1268342    .1933875
+---------------+----------------------------------------------------------------
+prac_id        |
+     var(_cons)|   6.80e-32   1.12e-31                      2.72e-33    1.70e-30
+--------------------------------------------------------------------------------
+Note: Estimates are transformed only in the first equation to odds ratios.
+Note: _cons estimates baseline odds (conditional on zero random effects).
+
+. 
+. 
+. *SENSITIVITY ANALYSIS
+. melogit consented ib5.imd_quintile  i.text_or_letter non_white  || prac_id:, bin(invites_sent) or base vce(robust)
+
+Fitting fixed-effects model:
+
+Iteration 0:  Log likelihood = -26.179948  
+Iteration 1:  Log likelihood = -25.924901  
+Iteration 2:  Log likelihood = -25.924238  
+Iteration 3:  Log likelihood = -25.924238  
+
+Refining starting values:
+
+Grid node 0:  Log likelihood = -31.588981
+
+Fitting full model:
+
+Iteration 0:  Log pseudolikelihood = -31.588981  (not concave)
+Iteration 1:  Log pseudolikelihood =  -26.87929  (not concave)
+Iteration 2:  Log pseudolikelihood = -26.311639  (not concave)
+Iteration 3:  Log pseudolikelihood = -26.084326  (not concave)
+Iteration 4:  Log pseudolikelihood =    -26.038  (not concave)
+Iteration 5:  Log pseudolikelihood = -25.999828  (not concave)
+Iteration 6:  Log pseudolikelihood = -25.996002  (not concave)
+Iteration 7:  Log pseudolikelihood = -25.995954  (not concave)
+Iteration 8:  Log pseudolikelihood = -25.995945  (not concave)
+Iteration 9:  Log pseudolikelihood = -25.995941  (not concave)
+Iteration 10: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 11: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 12: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 13: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 14: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 15: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 16: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 17: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 18: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 19: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 20: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 21: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 22: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 23: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 24: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 25: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 26: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 27: Log pseudolikelihood = -25.995941  (not concave)
+Iteration 28: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 29: Log pseudolikelihood = -25.995941  (backed up)
+Iteration 30: Log pseudolikelihood =  -25.99594  (not concave)
+Iteration 31: Log pseudolikelihood = -25.995939  
+Iteration 32: Log pseudolikelihood = -25.995922  (backed up)
+Iteration 33: Log pseudolikelihood = -25.995904  (backed up)
+Iteration 34: Log pseudolikelihood = -25.995902  (not concave)
+Iteration 35: Log pseudolikelihood = -25.995893  
+Iteration 36: Log pseudolikelihood = -25.995324  (backed up)
+Iteration 37: Log pseudolikelihood = -25.994759  (not concave)
+Iteration 38: Log pseudolikelihood = -25.994703  
+Iteration 39: Log pseudolikelihood = -25.993586  (backed up)
+Iteration 40: Log pseudolikelihood = -25.993035  (backed up)
+Iteration 41: Log pseudolikelihood = -25.991944  (backed up)
+Iteration 42: Log pseudolikelihood = -25.961801  
+Iteration 43: Log pseudolikelihood = -25.933314  
+Iteration 44: Log pseudolikelihood = -25.924239  (not concave)
+Iteration 45: Log pseudolikelihood = -25.924239  (not concave)
+Iteration 46: Log pseudolikelihood = -25.924239  
+
+Mixed-effects logistic regression               Number of obs     =         11
+Binomial variable: invites_sent
+Group variable: prac_id                         Number of groups  =          7
+
+                                                Obs per group:
+                                                              min =          1
+                                                              avg =        1.6
+                                                              max =          2
+
+Integration method: mvaghermite                 Integration pts.  =          7
+
+                                                Wald chi2(4)      =     119.33
+Log pseudolikelihood = -25.924239               Prob > chi2       =     0.0000
+                                  (Std. err. adjusted for 7 clusters in prac_id)
+--------------------------------------------------------------------------------
+               |               Robust
+     consented | Odds ratio   std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+  imd_quintile |
+            1  |   .2162243   .1010352    -3.28   0.001     .0865293    .5403132
+            3  |   .1797136   .0781206    -3.95   0.000     .0766598    .4213026
+            5  |          1  (base)
+               |
+text_or_letter |
+       letter  |          1  (base)
+         text  |   .6715421   .1695193    -1.58   0.115     .4094511    1.101398
+               |
+     non_white |   5.602398   23.48305     0.41   0.681     .0015152    20714.58
+         _cons |   .1566146    .016853   -17.23   0.000     .1268342    .1933875
+---------------+----------------------------------------------------------------
+prac_id        |
+     var(_cons)|   6.80e-32   1.12e-31                      2.72e-33    1.70e-30
+--------------------------------------------------------------------------------
+Note: Estimates are transformed only in the first equation to odds ratios.
+Note: _cons estimates baseline odds (conditional on zero random effects).
+
+. glm consented ib5.imd_quintile  i.text_or_letter non_white, family(binomial invites_sent) link(logit) base vce(cluster prac_id) eform
+
+Iteration 0:  Log pseudolikelihood = -26.179948  
+Iteration 1:  Log pseudolikelihood = -25.924901  
+Iteration 2:  Log pseudolikelihood = -25.924238  
+Iteration 3:  Log pseudolikelihood = -25.924238  
+
+Generalized linear models                         Number of obs   =         11
+Optimization     : ML                             Residual df     =          6
+                                                  Scale parameter =          1
+Deviance         =  11.22616803                   (1/df) Deviance =   1.871028
+Pearson          =   12.0742835                   (1/df) Pearson  =   2.012381
+
+Variance function: V(u) = u*(1-u/invites_sent)    [Binomial]
+Link function    : g(u) = ln(u/(invites_sent-u))  [Logit]
+
+                                                  AIC             =   5.622589
+Log pseudolikelihood = -25.92423825               BIC             =  -3.161204
+
+                                  (Std. err. adjusted for 7 clusters in prac_id)
+--------------------------------------------------------------------------------
+               |               Robust
+     consented | Odds ratio   std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+  imd_quintile |
+            1  |   .2162094   .1010368    -3.28   0.001     .0865166    .5403181
+            3  |   .1796729   .0780985    -3.95   0.000     .0766461    .4211867
+            5  |          1  (base)
+               |
+text_or_letter |
+       letter  |          1  (base)
+         text  |   .6715462   .1695362    -1.58   0.115     .4094346    1.101456
+               |
+     non_white |   5.597854   23.45927     0.41   0.681     .0015165    20663.49
+         _cons |   .1566169   .0168495   -17.23   0.000     .1268419    .1933814
+--------------------------------------------------------------------------------
+Note: _cons estimates baseline odds.
+
+. 
+. meglm consented ib5.imd_quintile i.text_or_letter non_white list_size || prac_id:, family(binomial invites_sent) link(logit) vce(robust) or
+
+Fitting fixed-effects model:
+
+Iteration 0:  Log likelihood = -25.408093  
+Iteration 1:  Log likelihood = -25.105169  
+Iteration 2:  Log likelihood = -25.104267  
+Iteration 3:  Log likelihood = -25.104267  
+
+Refining starting values:
+
+Grid node 0:  Log likelihood =  -31.19277
+
+Fitting full model:
+
+Iteration 0:  Log pseudolikelihood =  -31.19277  (not concave)
+Iteration 1:  Log pseudolikelihood = -26.609349  (not concave)
+Iteration 2:  Log pseudolikelihood = -25.254959  (not concave)
+Iteration 3:  Log pseudolikelihood = -25.188094  (not concave)
+Iteration 4:  Log pseudolikelihood = -25.132794  (not concave)
+Iteration 5:  Log pseudolikelihood = -25.127255  (not concave)
+Iteration 6:  Log pseudolikelihood = -25.125036  (not concave)
+Iteration 7:  Log pseudolikelihood = -25.124148  (not concave)
+Iteration 8:  Log pseudolikelihood = -25.123793  (not concave)
+Iteration 9:  Log pseudolikelihood = -25.123651  (not concave)
+Iteration 10: Log pseudolikelihood = -25.123594  (not concave)
+Iteration 11: Log pseudolikelihood = -25.123549  (not concave)
+Iteration 12: Log pseudolikelihood =  -25.12354  (not concave)
+Iteration 13: Log pseudolikelihood = -25.123539  (not concave)
+Iteration 14: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 15: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 16: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 17: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 18: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 19: Log pseudolikelihood = -25.123538  (backed up)
+Iteration 20: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 21: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 22: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 23: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 24: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 25: Log pseudolikelihood = -25.123538  (backed up)
+Iteration 26: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 27: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 28: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 29: Log pseudolikelihood = -25.123538  (backed up)
+Iteration 30: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 31: Log pseudolikelihood = -25.123538  (not concave)
+Iteration 32: Log pseudolikelihood = -25.123538  
+Iteration 33: Log pseudolikelihood = -25.123537  (backed up)
+Iteration 34: Log pseudolikelihood = -25.123527  (not concave)
+Iteration 35: Log pseudolikelihood = -25.123527  
+Iteration 36: Log pseudolikelihood = -25.123508  (backed up)
+Iteration 37: Log pseudolikelihood = -25.123498  (not concave)
+Iteration 38: Log pseudolikelihood = -25.123494  (not concave)
+Iteration 39: Log pseudolikelihood = -25.123488  
+Iteration 40: Log pseudolikelihood = -25.123479  (not concave)
+Iteration 41: Log pseudolikelihood = -25.123464  (not concave)
+Iteration 42: Log pseudolikelihood = -25.123415  (not concave)
+Iteration 43: Log pseudolikelihood = -25.123396  
+Iteration 44: Log pseudolikelihood = -25.114962  
+Iteration 45: Log pseudolikelihood = -25.104268  
+Iteration 46: Log pseudolikelihood = -25.104267  
+
+Mixed-effects GLM                               Number of obs     =         11
+Family: Binomial
+Link:   Logit
+Binomial variable: invites_sent
+Group variable: prac_id                         Number of groups  =          7
+
+                                                Obs per group:
+                                                              min =          1
+                                                              avg =        1.6
+                                                              max =          2
+
+Integration method: mvaghermite                 Integration pts.  =          7
+
+                                                Wald chi2(5)      =     972.81
+Log pseudolikelihood = -25.104267               Prob > chi2       =     0.0000
+                                  (Std. err. adjusted for 7 clusters in prac_id)
+--------------------------------------------------------------------------------
+               |               Robust
+     consented | Odds ratio   std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+  imd_quintile |
+            1  |   .2526154   .1188158    -2.93   0.003     .1004855    .6350621
+            3  |   .1620472   .0741897    -3.98   0.000     .0660599    .3975071
+               |
+text_or_letter |
+         text  |   .5950585   .1808666    -1.71   0.088     .3279737    1.079643
+     non_white |   .4491012   1.932326    -0.19   0.852     .0000977    2064.277
+     list_size |   1.000017   8.35e-06     2.00   0.045            1    1.000033
+         _cons |   .1340579   .0121993   -22.08   0.000     .1121587     .160233
+---------------+----------------------------------------------------------------
+prac_id        |
+     var(_cons)|   4.40e-31   2.10e-30                      3.88e-35    4.99e-27
+--------------------------------------------------------------------------------
+Note: Estimates are transformed only in the first equation to odds ratios.
+Note: _cons estimates baseline odds (conditional on zero random effects).
+
+. 
+. 
+. clear
+
+. use  one_line_per_problem_methods.dta, clear
+
+. 
+. ** no of probs per cat
+. local N = 91   
+
+. *use problems.dta, clear
+. bys consent_id icpc3_cat: keep if _n==1   
+(10 observations deleted)
+
+. contract icpc3_cat                    
+
+. rename _freq n_consults_with_cat
+
+. gen pct_consults = 100 * n_consults_with_cat / `N'
+
+. list icpc3_cat n_consults_with_cat pct_consults, noobs
+
+  +--------------------------------+
+  | icpc3_~t   n_cons~t   pct_co~s |
+  |--------------------------------|
+  |        A         27   29.67033 |
+  |        B          3   3.296703 |
+  |        D         14   15.38461 |
+  |        F          2   2.197802 |
+  |        G         16   17.58242 |
+  |--------------------------------|
+  |        H          2   2.197802 |
+  |        K         16   17.58242 |
+  |        L         16   17.58242 |
+  |        N          6   6.593407 |
+  |        P          7   7.692307 |
+  |--------------------------------|
+  |        R          6   6.593407 |
+  |        S         11   12.08791 |
+  |        T         13   14.28571 |
+  |        U          9    9.89011 |
+  |        W          2   2.197802 |
+  |--------------------------------|
+  |        Z          1   1.098901 |
+  +--------------------------------+
+
+. 
+. use  one_line_per_problem_methods.dta, clear
+
+. 
+. asdoc tab icpc3_cat_long
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+                               __000000 |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                            A - General |         31       19.25       19.25
+B - Blood, blood-forming organs and imm |          3        1.86       21.12
+                   D - Digestive system |         17       10.56       31.68
+                                F - Eye |          2        1.24       32.92
+                     G - Genital system |         17       10.56       43.48
+                                H - Ear |          2        1.24       44.72
+                 K - Circulatory system |         16        9.94       54.66
+             L - Musculoskeletal system |         17       10.56       65.22
+                N - Neurological system |          6        3.73       68.94
+P - Psychological, mental and neurodeve |          7        4.35       73.29
+                 R - Respiratory system |          6        3.73       77.02
+                               S - Skin |         12        7.45       84.47
+T - Endocrine, metabolic and nutritiona |         13        8.07       92.55
+                     U - Urinary system |          9        5.59       98.14
+         W - Pregnancy and childbearing |          2        1.24       99.38
+                    Z - Social problems |          1        0.62      100.00
+----------------------------------------+-----------------------------------
+                                  Total |        161      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab icpc3_update_full if icpc3_cat =="A"
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+                      icpc3_update_full |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                 A310 Polypharmacy care |          3        9.68        9.68
+A310 Polypharmacy care - within discuss |          1        3.23       12.90
+                   AD24.05 Lyme disease |          1        3.23       16.13
+AD36 Other specified and unknown trauma |          1        3.23       19.35
+        AD37 Secondary effect of trauma |          2        6.45       25.81
+   AD41 Adverse effect of medical agent |          3        9.68       35.48
+  AD43 Side-effect of prosthetic device |          1        3.23       38.71
+AD44 Toxic effect of non-medicinal subs |          1        3.23       41.94
+        AF03 Intrauterine contraception |          1        3.23       45.16
+AF03 Intrauterine contraception or ?GS0 |          1        3.23       48.39
+AG02 Other specified general examinatio |          1        3.23       51.61
+AG04 Routine general health check-up of |          1        3.23       54.84
+AP16 Special screening examination for  |          4       12.90       67.74
+    AS01 General pain in multiple sites |          1        3.23       70.97
+     AS04 General weakness or tiredness |          2        6.45       77.42
+                 AS05 Postviral fatigue |          1        3.23       80.65
+       AS05.00 Chronic fatigue syndrome |          1        3.23       83.87
+ AS11 Bleeding (site unknown from call) |          1        3.23       87.10
+AS50 Other specified abnormal result in |          2        6.45       93.55
+AS50 Other specified abnormal result in |          1        3.23       96.77
+AS50.00 Elevated blood glucose level (p |          1        3.23      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         31      100.00
+(file telesafe_methods_results.doc not found)
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab aud_typing if prob_no ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+                aud_typing |      Freq.     Percent        Cum.
+---------------------------+-----------------------------------
+                         0 |         28       30.77       30.77
+            0 (only in px) |          3        3.30       34.07
+0 (other than booking apt) |          1        1.10       35.16
+                         1 |         58       63.74       98.90
+       1 (looking up info) |          1        1.10      100.00
+---------------------------+-----------------------------------
+                     Total |         91      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. **
+. 
+. clear
+
+. use pt_survey.dta
+
+. . 
+. asdoc tab wait_time_appointment
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+      How long after |
+    booking did your |
+     phone appt take |
+              place? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+        The same day |         48       42.11       42.11
+        The next day |          8        7.02       49.12
+    A few days later |         16       14.04       63.16
+A week or more later |         37       32.46       95.61
+       Cant remember |          5        4.39      100.00
+---------------------+-----------------------------------
+               Total |        114      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wait_time_appointment if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+      How long after |
+    booking did your |
+     phone appt take |
+              place? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+        The same day |         37       43.53       43.53
+        The next day |          6        7.06       50.59
+    A few days later |         11       12.94       63.53
+A week or more later |         27       31.76       95.29
+       Cant remember |          4        4.71      100.00
+---------------------+-----------------------------------
+               Total |         85      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab satisfaction_appt
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Overall satisfaction with appt |      Freq.     Percent        Cum.
+-----------------------------------+-----------------------------------
+                    Very satisfied |         80       67.23       67.23
+                         Satisfied |         33       27.73       94.96
+                      Dissatisfied |          2        1.68       96.64
+Neither satisfied nor dissatisfied |          4        3.36      100.00
+-----------------------------------+-----------------------------------
+                             Total |        119      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab satisfaction_appt if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Overall satisfaction with appt |      Freq.     Percent        Cum.
+-----------------------------------+-----------------------------------
+                    Very satisfied |         63       71.59       71.59
+                         Satisfied |         21       23.86       95.45
+                      Dissatisfied |          1        1.14       96.59
+Neither satisfied nor dissatisfied |          3        3.41      100.00
+-----------------------------------+-----------------------------------
+                             Total |         88      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab first_consultation
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   Was this |
+ your first |
+consultatio |
+  n for the |
+   problem? |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        Yes |         35       29.17       29.17
+         No |         85       70.83      100.00
+------------+-----------------------------------
+      Total |        120      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab first_consultation if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   Was this |
+ your first |
+consultatio |
+  n for the |
+   problem? |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        Yes |         26       29.21       29.21
+         No |         63       70.79      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab duration_condition
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+               How long had you had the |
+           condition/problem discussed? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                         1 week or less |         28       23.33       23.33
+ More than 1 week but less than 1 month |         20       16.67       40.00
+1 month or more, but less than 6 months |         18       15.00       55.00
+                       6 months or more |         43       35.83       90.83
+                         Not applicable |          6        5.00       95.83
+                 Not sure/cant remember |          5        4.17      100.00
+----------------------------------------+-----------------------------------
+                                  Total |        120      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab duration_condition if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+               How long had you had the |
+           condition/problem discussed? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                         1 week or less |         22       24.72       24.72
+ More than 1 week but less than 1 month |         13       14.61       39.33
+1 month or more, but less than 6 months |         13       14.61       53.93
+                       6 months or more |         32       35.96       89.89
+                         Not applicable |          6        6.74       96.63
+                 Not sure/cant remember |          3        3.37      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab this_appt_preferences
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+       Happy with phone appt this time? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+I was happy with a telephone appointmen |         96       82.05       82.05
+I would have preferred a face-to-face a |         16       13.68       95.73
+    I would have preferred a home visit |          3        2.56       98.29
+                    I had no preference |          1        0.85       99.15
+            Other (please give details) |          1        0.85      100.00
+----------------------------------------+-----------------------------------
+                                  Total |        117      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab this_appt_preferences if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+       Happy with phone appt this time? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+I was happy with a telephone appointmen |         74       84.09       84.09
+I would have preferred a face-to-face a |          9       10.23       94.32
+    I would have preferred a home visit |          3        3.41       97.73
+                    I had no preference |          1        1.14       98.86
+            Other (please give details) |          1        1.14      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         88      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab usual_preferences if pt_dup2 !=1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+         Usual preference for appt type |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+       I prefer a telephone appointment |         16       13.91       13.91
+      I prefer a video call appointment |          1        0.87       14.78
+I prefer a face-to-face appointment at  |         68       59.13       73.91
+                  I prefer a home visit |          1        0.87       74.78
+                    I had no preference |         26       22.61       97.39
+            Other (please give details) |          3        2.61      100.00
+----------------------------------------+-----------------------------------
+                                  Total |        115      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab usual_preferences if pt_dup2 !=1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+         Usual preference for appt type |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+       I prefer a telephone appointment |         10       11.76       11.76
+      I prefer a video call appointment |          1        1.18       12.94
+I prefer a face-to-face appointment at  |         49       57.65       70.59
+                  I prefer a home visit |          1        1.18       71.76
+                    I had no preference |         22       25.88       97.65
+            Other (please give details) |          2        2.35      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         85      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab prescribed_meds 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+ Prescribed |
+   medicine |
+after appt? |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        Yes |         60       50.85       50.85
+         No |         58       49.15      100.00
+------------+-----------------------------------
+      Total |        118      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab prescribed_meds if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+ Prescribed |
+   medicine |
+after appt? |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        Yes |         44       50.57       50.57
+         No |         43       49.43      100.00
+------------+-----------------------------------
+      Total |         87      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab collected_meds 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+          Did you collect the medicine? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                      Yes - all of them |         55       91.67       91.67
+                     Yes - some of them |          1        1.67       93.33
+        No - I decided not to take them |          2        3.33       96.67
+        No - because I already had some |          2        3.33      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         60      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab collected_meds if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+          Did you collect the medicine? |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                      Yes - all of them |         40       90.91       90.91
+                     Yes - some of them |          1        2.27       93.18
+        No - I decided not to take them |          1        2.27       95.45
+        No - because I already had some |          2        4.55      100.00
+----------------------------------------+-----------------------------------
+                                  Total |         44      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab took_meds 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+     Did you take the medicine? |      Freq.     Percent        Cum.
+--------------------------------+-----------------------------------
+              Yes - all of them |         51       85.00       85.00
+                   Some of them |          5        8.33       93.33
+No - I decided not to take them |          4        6.67      100.00
+--------------------------------+-----------------------------------
+                          Total |         60      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab took_meds if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+     Did you take the medicine? |      Freq.     Percent        Cum.
+--------------------------------+-----------------------------------
+              Yes - all of them |         37       84.09       84.09
+                   Some of them |          5       11.36       95.45
+No - I decided not to take them |          2        4.55      100.00
+--------------------------------+-----------------------------------
+                          Total |         44      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab wanted_diagnosis if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+  diagnosis |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         54       60.67       60.67
+    Checked |         35       39.33      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_reassurance if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+reassurance |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         68       76.40       76.40
+    Checked |         21       23.60      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_tests if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+tests/inves |
+  tigations |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         76       85.39       85.39
+    Checked |         13       14.61      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_results if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+test/invest |
+    igation |
+    results |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         73       82.02       82.02
+    Checked |         16       17.98      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_treatment if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+  treatment |
+      (e.g. |
+prescriptio |
+        ns) |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         50       56.18       56.18
+    Checked |         39       43.82      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_checkup if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+   check on |
+  long-term |
+  condition |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         77       86.52       86.52
+    Checked |         12       13.48      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_med_review if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+ medication |
+     review |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         73       82.02       82.02
+    Checked |         16       17.98      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+(file telesafe_methods_results.doc not found)
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_referral if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+   referral |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         81       91.01       91.01
+    Checked |          8        8.99      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_followup if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+  follow-up |
+on previous |
+       appt |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         79       88.76       88.76
+    Checked |         10       11.24      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab wanted_f2f if answered_qs ==1 & recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+    Wanted: |
+face-to-fac |
+     e appt |      Freq.     Percent        Cum.
+------------+-----------------------------------
+  Unchecked |         77       86.52       86.52
+    Checked |         12       13.48      100.00
+------------+-----------------------------------
+      Total |         89      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab trust_hcp 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+How well do you know |
+           this HCP? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+     Yes - very well |         24       20.34       20.34
+   Yes - fairly well |         47       39.83       60.17
+     No - not at all |         36       30.51       90.68
+Dont know / cant say |         11        9.32      100.00
+---------------------+-----------------------------------
+               Total |        118      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab trust_hcp if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+How well do you know |
+           this HCP? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+     Yes - very well |         20       22.99       22.99
+   Yes - fairly well |         35       40.23       63.22
+     No - not at all |         24       27.59       90.80
+Dont know / cant say |          8        9.20      100.00
+---------------------+-----------------------------------
+               Total |         87      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. asdoc tab confidence_hcp 
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   Did you trust the |
+                HCP? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+    Yes - definitely |        107       89.92       89.92
+Yes - to some extent |         11        9.24       99.16
+     No - not at all |          1        0.84      100.00
+---------------------+-----------------------------------
+               Total |        119      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. asdoc tab confidence_hcp if recording_future_research ==1
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+   Did you trust the |
+                HCP? |      Freq.     Percent        Cum.
+---------------------+-----------------------------------
+    Yes - definitely |         80       90.91       90.91
+Yes - to some extent |          8        9.09      100.00
+---------------------+-----------------------------------
+               Total |         88      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. 
+. clear
+
+. use consultation_timings.dta
+
+. sum secs
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        secs |         91    433.0879    253.6344         61       1454
+
+. sum secs if wait_time_appointment ==1 
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        secs |         37    350.3784    249.1549         61       1454
+
+. sum secs if wait_time_appointment !=1 & wait_time_appointment !=. & wait_time_appointment !=5
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+        secs |         44    495.6136    259.0901         83       1068
+
+. 
+. ** table S1
+. use "[REDACTED SERVER]\one_line_per_problem.dta", clear
+
+. asdoc tab icpc2_cat_long
+(File telesafe_methods_results.doc already exists, option append was assumed)
+
+                               __000000 |      Freq.     Percent        Cum.
+----------------------------------------+-----------------------------------
+                      - - Process codes |          4        2.41        2.41
+            A - General and unspecified |         25       15.06       17.47
+B - Blood, blood-forming organs, and im |          4        2.41       19.88
+                          D - Digestive |         15        9.04       28.92
+                                F - Eye |          2        1.20       30.12
+                                H - Ear |          2        1.20       31.33
+                        K - Circulatory |         18       10.84       42.17
+                    L - Musculoskeletal |         18       10.84       53.01
+                       N - Neurological |          6        3.61       56.63
+                      P - Psychological |          7        4.22       60.84
+                        R - Respiratory |          7        4.22       65.06
+                               S - Skin |         13        7.83       72.89
+T - Endocrine, metabolic, and nutrition |         14        8.43       81.33
+                            U - Urinary |          9        5.42       86.75
+W - Pregnancy, child bearing, family pl |          4        2.41       89.16
+X - Female genital system (including br |         12        7.23       96.39
+                Y - Male genital system |          5        3.01       99.40
+                    Z - Social problems |          1        0.60      100.00
+----------------------------------------+-----------------------------------
+                                  Total |        166      100.00
+Click to Open File:  telesafe_methods_results.doc
+
+. local N = 96   
+
+. bys consent_id icpc3_cat: keep if _n==1   
+(10 observations deleted)
+
+. contract icpc2_cat                    
+
+. rename _freq n_consults_with_cat
+
+. gen pct_consults = 100 * n_consults_with_cat / `N'
+
+. list icpc2_cat n_consults_with_cat pct_consults, noobs
+
+  +--------------------------------+
+  | icpc2_~t   n_cons~t   pct_co~s |
+  |--------------------------------|
+  |        -          2   2.083333 |
+  |        A         23   23.95833 |
+  |        B          4   4.166667 |
+  |        D         13   13.54167 |
+  |        F          2   2.083333 |
+  |--------------------------------|
+  |        H          2   2.083333 |
+  |        K         17   17.70833 |
+  |        L         17   17.70833 |
+  |        N          6       6.25 |
+  |        P          7   7.291667 |
+  |--------------------------------|
+  |        R          7   7.291667 |
+  |        S         12       12.5 |
+  |        T         14   14.58333 |
+  |        U          9      9.375 |
+  |        W          4   4.166667 |
+  |--------------------------------|
+  |        X         12       12.5 |
+  |        Y          4   4.166667 |
+  |        Z          1   1.041667 |
+  +--------------------------------+
+
+. 
+. clear
+
+. 
+. log close
+      name:  <unnamed>
+       log:  [REDACTED SERVER]\telesafe_methods.log
+  log type:  text
+ closed on:  28 Sep 2025, 15:02:29
+-----------------------------------------------------------------------------------------------------------------------------------------------------
